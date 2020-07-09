@@ -1,0 +1,128 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html lang='es' style='height: 100%;'>
+<head>
+    <title>Coronavirus</title>
+    {% load static %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    {% load static %}
+      <!-- Prism CSS -->
+      <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript for Materialize CSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
+<style>
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+</style>
+</head>
+<body class="white">
+
+<header>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  </ul>
+  <nav>
+<div class="navbar-fixed">
+  <div class="nav-wrapper cyan darken-2">
+        <a href="{% url 'home' %}" class="brand-logo white-text" >Coronavirus</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{% url 'about'%}">Sobre nosotros</a></li>
+          <li><a href="{% url 'contact' %}">Envianos algo</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Acerca del virus<i
+              class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+          
+        </ul>
+      </div>
+    </nav>
+    <script>
+      $(document).ready(function(){
+          $('.modal').modal();
+          $('.dropdown-trigger').dropdown();
+      });
+  </script>
+         
+</header>
+<main>
+  <div class="container">
+    <div class="row">  
+      <div class="col s5"> 
+        <div class="card">
+          <div class="card-content">
+            <img src="https://www.isglobal.org/documents/10179/7759027/Coronavirus+SARS-CoV-2+de+CDC+en+Unsplash" class="responsive-img">
+          </div>
+        </div>
+      </div>
+      <div class="col s7">
+        <div class="card">
+          <div class="card-content">
+            <div data-target="cabecera">
+              <h5 class="center-align" style="font-family: avenir black;">Información acerca del virus</h4>
+            </div>
+            <div data-target="cuerpo">
+              <p style="font-family: 'Times New Roman', Times, serif;">El coronavirus (SARS-CoV-2) fue un virus que fue identificado por primera vez en diciembre de 2019 en la cuidad de Wuhan, en la República de China.
+                 Partió con casos de personas enfermas con un tipo de neumonía desconocida. 
+                 Hoy en día se han informado más de 11,4 millones de casos en 218 países, con más de 534.000 muertes y aproximadamente 6,1 millones de personas recuperadas del virus.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</main>
+<footer class="page-footer cyan darken-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="black-text">Importante</h5>
+        <p class="black-text text-lighten-4">Toda la Información que está puesta en la página son sacadas de páginas
+          oficiales, de esta forma la Información no será trangiversada.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="black-text">Links</h5>
+        <ul>
+          <li><a class="black-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="black-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="black-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="black-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+{% endblock content %}

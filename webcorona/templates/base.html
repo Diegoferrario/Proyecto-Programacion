@@ -1,0 +1,7 @@
+<!-- templates/base.html -->
+<header>
+    <a href="{% url 'home' %}" class="black-text">Pagina principal</a> | <a href="{% url 'about' %}" class="black-text">Quienes somos</a> | <a href="{% url 'contact' %}" class="black-text">Contactanos</a>
+  </header>
+  
+  {% block content %}
+  {% endblock %}

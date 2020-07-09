@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock title %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   {% load static %}
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+   {% load static %}
+     <!-- Prism CSS -->
+     <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript for Materialize CSS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+   <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
+   <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
+ 
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+{% block content %}
+  
+<h1>Contactanos</h1>
+  
+{% if submitted %}
+<p class="success">
+    <h1 style="text-align: center;">Se a realizado exitosamente, ¡Lo esperamos!</h1>
+   </p>
+
+{% else %}
+   <form action="" method="post" novalidate>
+   <table>
+    {{ form.as_table }}
+    <tr>
+     <td>&nbsp;</td>
+     <td><input type="submit" value="Submit"></td>
+    </tr>
+   </table>
+   {% csrf_token %}
+   </form>
+{% endif %}
+{% endblock content %}

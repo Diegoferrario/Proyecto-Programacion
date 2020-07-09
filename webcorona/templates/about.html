@@ -1,0 +1,168 @@
+<!-- templates/about.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang='es' style='height: 100%;'>
+
+<head>
+  <title>Conocenos</title>
+  {% load static %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  {% load static %}
+    <!-- Prism CSS -->
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript for Materialize CSS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+  <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
+  <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+  </style>
+</head>
+
+<body class="white">
+  
+
+<header>
+ <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  
+  <nav>
+<div class="navbar-fixed">
+  <div class="nav-wrapper cyan darken-2">
+        <a href="{% url 'home' %}" class="brand-logo white-text">Coronavirus</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{% url 'about'%}">Sobre nosotros</a></li>
+          <li><a href="{% url 'contact' %}">Envianos algo</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Acerca del virus<i
+              class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+          
+        </ul>
+      </div>
+    </nav>
+
+</div> 
+  <script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.dropdown-trigger').dropdown();
+    });
+</script>
+</header>
+<main>
+<div class="container">
+  <div class="row">
+    <div class="col s3">
+      <div class="card">
+        <div class="card-image">
+          <img src="data:image/png;base64,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">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Acerca de nosotros<i class="material-icons right">more_vert</i></span>
+          Toca el título para saber más.
+        </div>
+        <div class="card-reveal">
+          <span class="card-title activator grey-text text-darken-4">Acerca de nosotros<i class="material-icons right">more_vert</i></span>
+          Somos un grupo de ingenieros de la Universidad Adolfo Ibañez que está buscando concentizar a las personas acerca del virus. 
+        </div>
+      </div>
+    </div>
+    <div class="col s9">
+      <div class="card">
+        <div class="card-content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque ipsa tenetur sapiente explicabo, ipsam voluptatem, ut dicta blanditiis nesciunt, placeat debitis iusto. Dolor, id. Ut vel quisquam aliquid eius.
+        </div>
+      </div>
+      <div>
+  </div>
+</div>
+</main>
+
+<footer class="page-footer cyan darken-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Importante</h5>
+          <p class="black-text text-lighten-4">Toda la Información que está puesta en la página son sacadas de páginas
+            oficiales, de esta forma la Información no será trangiversada.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Links</h5>
+          <ul>
+            <li><a class="black-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+</footer>
+<script>
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+
+    }
+    );
+
+  </script>
+
+</body>
+
+
+{% endblock %}
