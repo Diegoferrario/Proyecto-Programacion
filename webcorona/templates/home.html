@@ -13,39 +13,131 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     {% load static %}
-      <!-- Prism CSS -->
-      <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
-      <!-- Compiled and minified CSS -->
+       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
       <!-- Compiled and minified JavaScript for Materialize CSS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
     <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+  
+
+<style>
+.contenedor{
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
+<style>
+  .titulos {
+font-family: avenir black;
+text-align: center;  
+  }
+</style>
+<style>
+.parrafos {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  padding: 2px;
+
+  }
+</style>
 <style>
 
+.float-img {
+width: 250px;
+height: 175px;
+border-radius: 10px;
+float: left;
+margin-right: 15px;
+margin-top: 25px;
+
+}
+</style>
+<style>
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.slider{
+  position: relative;
+  width: 800px;
+  height: 300px;
+}
+
+ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+}
+
+ul.slider li img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+ul.slider li:first-child {
+    opacity: 1; /*Mostramos el primer <li>*/
+}
+
+ul.slider li:target {
+    opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+}
+
+.menu{
+  text-align: center;
+  margin: 20px;
+}
+
+.menu li{
+  display: inline-block;
+  text-align: center;
+}
+
+.menu li a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: grey;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border-radius: 100%;
+}
+</style>
+<style>
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
-
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+   }
 </style>
 </head>
-<body class="white">
 
+<body style="background-color: #D0D0D0;">
 <header>
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
+    <li><a href="#informacion" >Información.</a></li>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li><a href="#cuarentena" >Cuarentena.</a></li>
+    <li class="divider"></li>
+    <li><a href="#graficos" >Gráficos.</a></li>
   </ul>
-  </ul>
+ 
   <nav>
 <div class="navbar-fixed">
   <div class="nav-wrapper cyan darken-2">
@@ -70,31 +162,181 @@ body {
          
 </header>
 <main>
-  <div class="container">
-    <div class="row">  
-      <div class="col s5"> 
-        <div class="card">
-          <div class="card-content">
-            <img src="https://www.isglobal.org/documents/10179/7759027/Coronavirus+SARS-CoV-2+de+CDC+en+Unsplash" class="responsive-img">
-          </div>
-        </div>
-      </div>
-      <div class="col s7">
-        <div class="card">
-          <div class="card-content">
-            <div data-target="cabecera">
-              <h5 class="center-align" style="font-family: avenir black;">Información acerca del virus</h4>
-            </div>
-            <div data-target="cuerpo">
-              <p style="font-family: 'Times New Roman', Times, serif;">El coronavirus (SARS-CoV-2) fue un virus que fue identificado por primera vez en diciembre de 2019 en la cuidad de Wuhan, en la República de China.
-                 Partió con casos de personas enfermas con un tipo de neumonía desconocida. 
-                 Hoy en día se han informado más de 11,4 millones de casos en 218 países, con más de 534.000 muertes y aproximadamente 6,1 millones de personas recuperadas del virus.
-                </p>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+<div class="container">
+  <div class="row">
 
+    <div class="col s12"> 
+      <div class="card">
+        <div class="card-content">
+          <div class="imgLiquid">
+            <img src="https://www.isglobal.org/documents/10179/7759027/Coronavirus+SARS-CoV-2+de+CDC+en+Unsplash" class="float-img">
+          </div>
+          <p>
+            <h4 class="responsive-text " style="font-family: avenir black;">Información acerca del virus</h4>
+            <h6 style="font-family: 'Times New Roman', Times, serif;" align="justify">El coronavirus (SARS-Cov-2) es un virus que fue identificado por primera vez en diciembre del año 2019 en la ciudad de Wuhan, en la República China.
+              En este caso se pudieron reportar diferentes casos de personas con un tipo de neumonía desconocida. Hasta el día de hoy se han informado más de 11,5 millones de casos de la enfermedad en 218 países y territorios en el mundo, con más de 534.000 de muertes y más de 6,1 millones de casos de personas.
+            </h6>
+            <h4 class="titulos"> ¿Como se transmite?</h4>
+            <h6 style="font-family: 'Times New Roman', Times, serif;" align="justify">El principal mecanismo de contagio de los coronavirus es de persona a persona, probablemente, por secreciones respiratorias. Las personas infectadas expelen el virus cuando tosen o a través de sus secreciones, en especial las nasales y la saliva. Por eso es importante mantenerse a más de 1 metro (3 pies) de distancia de una persona que se encuentre enferma.
+              El coronavirus puede permanecer horas en distintas superficies contaminadas con dichas secreciones, por ello es importante lavarse las manos frecuentemente y no tocarse la cara con ellas cuando has estado en lugares públicos, como por ejemplo, medios de locomoción masivos u oficinas de atención de público. </h6>
+              <h4 style="font-family: avenir black;" class="center-align">¿Cuáles son los signos y síntomas?</h4>
+              <h6 style="font-family: 'Times New Roman', Times, serif;" align="justify">Produce síntomas similares a los de la gripe, entre los que se incluyen fiebre, tos seca, disnea (sensación de falta de aire), mialgia ( dolor muscular) y fatiga. En casos graves se caracteriza por producir neumonía, síndrome de dificultad respiratoria aguda,​ sepsis y choque séptico que conduce a cerca de 3,75 % de los infectados a la muerte según la OMS. No existe tratamiento específico; las medidas terapéuticas principales consisten en aliviar los síntomas y mantener las funciones vitales.</h6>
+              <h4 class="titulos">¿Como prevenir?</h4>
+              <h5 style="font-family: 'Times New Roman', Times, serif;"> <b><i>Practicar el distanciamiento social.</i></b> </h5>
+              <h6 class="parrafos">Si está rodeado de otras personas, mantenga una distancia de 6 pies cuando sea posible. Evite los abrazos, dar la mano, las reuniones grandes y los ambientes cerrados. ¿Por qué? Se cree que el virus se propaga principalmente de persona a persona. Cuando alguien tose o estornuda, esparce pequeñas gotas de líquido de la nariz o la boca, que contienen el virus. Si usted está muy cerca, puede inhalar esas gotas, incluido el coronavirus, si la persona que tose tiene la enfermedad.</h6>
+              <h5 style="font-family: 'Times New Roman', Times, serif;"><b><i>Cubrir el rostro con una mascarilla.</i></b></h5>
+              <h6 class="parrafos">Cubra su rostro con una mascarilla en público. Cúbrase la boca y la nariz con una mascarilla para el rostro cuando esté alrededor de otras personas y en público, como en el supermercado. NO use una mascarilla destinada para un trabajador de atención médica. No le cubra el rostro con un paño de tela a los niños menores de 2 años, personas que tengan problemas para respirar ni personas que no puedan quitarse la mascarilla sin ayuda. ¿Por qué? Podría transmitir el COVID-19 a otras personas, aunque no se sienta enfermo. El paño de tela para el rostro está diseñado para proteger a otras personas en caso de que usted esté infectado.</h6>
+              <h5 style="font-family: 'Times New Roman', Times, serif;"> <b><i>Evitar tocarse los ojos, la nariz y la boca.</i></b</h5>
+                <h6 class="parrafos">¿Por qué? Las manos tocan muchas superficies y pueden levantar los virus. Una vez contaminadas, las manos pueden transferir el virus a los ojos, nariz o boca.</h6>
+                <h5 style="font-family: 'Times New Roman', Times, serif;"> <b><i>Cubrirse al estornudar y toser.</i></b></h5>
+                <h6 class="parrafos">Cúbrase la boca y la nariz con un pañuelo cuando tosa o estornude o use la parte interna del codo. Tire los pañuelos usados a la basura. ¿Por qué? Las gotas propagan el virus. Manteniendo una buena higiene respiratoria, protege a las personas que lo rodean de los virus, como el resfrío, la gripe y COVID-19.</h6>
+                <h5 style="font-family: 'Times New Roman', Times, serif;"><b><i>Limpiar y desinfectar las superficies de “alto contacto”.</i></b></h5>
+                <h6 class="parrafos">Limpie Y desinfecte con frecuencia las superficies de contacto diario, es decir, mesas, perillas de las puertas, llaves de luz, encimeras, manijas, escritorios, teléfonos, teclados, inodoros, grifos y fregaderos.<br>Si las superficies están sucias, primero límpielas con detergente o agua y jabón y después desinféctelas. La mayoría de los desinfectantes domésticos más frecuentes registrados en EPA, soluciones de blanqueador domésticas diluidas y soluciones de alcohol con al menos un 70% de alcohol sirven. Consulte cómo fabricar una solución de blanqueador si los desinfectantes no están disponibles.</br></h6>
+                <h4 class="titulos">Tratamientos</h4>
+                <h5 style="font-family: 'Times New Roman', Times, serif;" class="contenedor"><b><i>Tratamiento Personal.</i></b></h5>
+                <h6 class="parrafos">Si se siente enfermo debe descansar, beber mucho líquido y comer alimentos nutritivos. Permanezca en una habitación separada de los demás miembros de la familia y utilice un baño exclusivamente para usted si es posible. Limpie y desinfecte frecuentemente las superficies que toque. Todas las personas deben mantener un estilo de vida saludable en casa. Lleve una dieta saludable, duerma, manténgase activo y establezca contacto social con los seres queridos a través del teléfono o internet. Los niños necesitan dosis adicionales de cariño y atención de los adultos durante los momentos difíciles. Mantenga rutinas y horarios regulares en la medida de lo posible. Es normal sentirse triste, estresado o confundido durante una crisis. Hablar con personas en las que confíe, como amigos y familiares, le puede ayudar. Si se siente abrumado, hable con un trabajador de la salud o un consejero.</h6>
+                <h5 style="font-family: 'Times New Roman', Times, serif;" class="contenedor"><b><i>Tratamiento Médico.</i></b></h5>
+                <h6 class="parrafos">Si tiene síntomas leves y, por lo demás, está sano, aíslese y póngase en contacto con su proveedor de atención médica o con una línea de información sobre la COVID‑19 para recibir asesoramiento. Solicite atención médica si tiene fiebre, tos y dificultad para respirar. Llame con antelación.</h6>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div> 
+        
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <h5 class="titulos">Tiempos de Cuarentena.</h5>
+          
+          <p style="font-family: 'Times New Roman', Times, serif; line-height: 1.5; "> <strong> Hoy en día Chile está con cuarentena en varios lugares del territorio nacional, es por esto que creamos está sección. <br> <b>¿En que consiste?</b> Se define como cuarentena a la separación y restricción de movimientos de personas que estuvieron expuestas a una enfermedad infecciosa, pero que no tienen síntomas, para observar si desarrollan la enfermedad. Esto se diferencia del aislamiento, que es la separación de personas que padecen una enfermedad contagiosa, de aquellas que están sanas. Ambas medidas son estrategias de salud pública que tienen como objetivo prevenir la propagación de enfermedades contagiosas. <br> <br> Sin embargo para nosotros la salud mental durante la cuarentena es muy importante, por lo que dejaremos una ventana especialmente dedicado a ese tema.  </strong></p>
+          
+        </div>
+        <div class="card-tabs">
+          <ul class="tabs tabs-fixed-width">
+            <li class="tab"><a href="#test4">Cosas a hacer</a></li>
+            <li class="tab"><a class="active" href="#test5">Cosas prohibidas</a></li>
+            <li class="tab"><a href="#test6">Estrés</a></li>
+          </ul>
+        </div>
+        <div class="card-content grey lighten-4">
+          <div id="test4"> 
+            <p> Recordar que para la gran mayoría de las cosas necesitarás permisos especiales que podrás sacar en <a class="blue-text text-lighten-3" href="https://www.comisariavirtual.cl/">comisaría virtual</a>.</p>
+            <p><br></p>
+            <p><li type="circle">Compra en supermercados y farmacia</li></p>
+            <p><li type="circle">Hora médica</li></p>
+            <p><li type="circle">Pago de servicios básicos, cobro de pensiones y gestiones bancarias.</li></p>
+            <p><li type="circle">Funerales</li></p>
+            <p><li type="circle">Retiro de alimentos</li></p>
+            <p><li type="circle">Transporte público</li></p>
+            <p><li type="circle">Pasear mascotas (con permiso)</li></p>
+            
+          </div>
+          <div id="test5">
+            <p><li type="circle">Salir de tu casa</li></p>
+            <p><li type="circle">Salir de vacaciones</li></p>
+            <p><li type="circle">Salir a comprar</li></p>
+            <p><li type="circle">Hacer ejercicios, visitar parques o plazas.</li></p>
+            <p><li type="circle"> Sacar a tus mascotas (excepto con permiso).</li></p>
+            
+          </div>
+          <div id="test6">
+            <p><li type="disc" style="font-size: small;">La pandemia de la enfermedad del coronavirus 2019 (COVID-19) puede resultar estresante para las personas. El temor y la ansiedad con respecto a una nueva enfermedad y lo que podría suceder pueden resultar abrumadores y generar emociones fuertes tanto en adultos como en niños. Las medidas de salud pública, como el distanciamiento social, pueden hacer que las personas se sientan aisladas y en soledad y es posible que esto llegara a causar: </li></p>
+            <p><br></p>
+            <p><li type="circle" style="font-size: small;">Temor y preocupación por su salud y la salud de sus seres queridos.</li></p>
+            <p><li type="circle" style="font-size: small;">Cambios en los patrones de sueño o alimentación.</li></p>
+            <p><li type="circle" style="font-size: small;">Dificultades para dormir o concentrarse.</li></p>
+            <p><li type="circle" style="font-size: small;">Agravamiento de problemas de salud mental.</li></p>
+            <p><li type="circle" style="font-size: small;">Mayor consumo de tabaco y/o alcohol y otras sustancias.</li></p>
+            <p><br></p>
+            <p><li type="disc" style="font-size: small;">Si sientes que alguna de las opciones anteriores podría llegar a representarte a tí o alguien cercano, porfavor comunicarse con el <a href="#!">133</a> o al <a href="#!">1-800-985-5990</a>.</li></p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  
+<div class="container section">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <div  class="slider">
+            <div class="slides">
+              <li>
+                <img src="https://www.df.cl/noticias/site/artic/20200316/imag/foto_0000112620200316214213.jpg" alt="Grafico-30 de marzo." >
+                <div class="caption center-align">
+                  <h5 class="light">Grafico Chile.</h5>
+                  
+                </div>
+              </li>
+
+              <li>
+                <img src="/webcorona/FotosProyecto/graficaChile.png" alt="">
+                <div class="caption center-align">
+                  <h3>Lorem, ipsum dolor.</h3>
+                  <h4 class="light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, facilis!</h4>
+                </div>
+              </li>
+
+              <li>
+                <img src="https://www.elmostrador.cl/media/2020/03/grafico-23-marzo-1.jpg" alt="">
+                <div class="caption center-align">
+                  <h3>Lorem, ipsum dolor.</h3>
+                  <h4 class="light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, facilis!</h4>
+                </div>
+              </li>
+
+              <li>
+                <img src="https://www.elmostrador.cl/media/2020/03/grafico-23-marzo-1.jpg" alt="">
+                <div class="caption center-align">
+                  <h3>Lorem, ipsum dolor.</h3>
+                  <h4 class="light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, facilis!</h4>
+                </div>
+              </li>
+            </div>
+          </div>
+          
+          
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+        
+        
+
+      
+<script>
+$(document).ready(function(){
+    $('.slider').slider();
+    $('.parallax').parallax();
+    $('.slider').slider();
+    
+  }); 
+</script>
+<script>
+  function goto($hashtag){
+     document.location = "index.html#" + $hashtag;
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems);
+  });
+</script>
 </main>
 <footer class="page-footer cyan darken-2">
   <div class="container">
@@ -105,12 +347,12 @@ body {
           oficiales, de esta forma la Información no será trangiversada.</p>
       </div>
       <div class="col l4 offset-l2 s12">
-        <h5 class="black-text">Links</h5>
+        <h5 class="black-text">Para saber más, ver de donde sacamos nosotros la información.</h5>
         <ul>
-          <li><a class="black-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="black-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="black-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="black-text text-lighten-3" href="#!">Link 4</a></li>
+          <li><a class="black-text text-lighten-3" href="https://www.gob.cl/coronavirus/"></a>gob.cl</li>
+          <li><a class="black-text text-lighten-3" href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019?gclid=Cj0KCQjwo6D4BRDgARIsAA6uN1-DVdxqCDZx5eh3OoKfmPq3opl30qKKnkNe_3yCn1I4w55x8HcyD-0aAiDVEALw_wcB"></a>who.int</li>
+          <li><a class="black-text text-lighten-3" href="https://www.hospitalsoterodelrio.cl/web/como-prevenir-el-nuevo-coronavirus/"></a>hospitalsoterodelrio.cl</li>
+          <li><a class="black-text text-lighten-3" href="https://espanol.cdc.gov/coronavirus/2019-ncov/daily-life-coping/managing-stress-anxiety.html"></a>español.cdc.gov</li>
         </ul>
       </div>
     </div>

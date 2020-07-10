@@ -1,52 +1,248 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Contact Us{% endblock title %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <!DOCTYPE html>
-<html lang="es">
+<html lang='es' style='height: 100%;'>
+
 <head>
-   {% load static %}
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-   {% load static %}
-     <!-- Prism CSS -->
-     <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <!-- Compiled and minified JavaScript for Materialize CSS -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-   <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
-   <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
- 
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
-<body>
+  <title>Contactanos</title>
+  {% load static %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  {% load static %}
+    <!-- Prism CSS -->
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript for Materialize CSS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+  <script type="text/javascript" src="{ static 'js/jquery.js' %}"></script>
+  <script type="text/javascript" src="{ static 'js/materialize.min.js' %}"></script>
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+  </style>
+</head >
+
    
+<body style="background-color: #D0D0D0;">
+<header>
+<ul id="dropdown1" class="dropdown-content">
+   <li><a href="#!">one</a></li>
+   <li><a href="#!">two</a></li>
+   <li class="divider"></li>
+   <li><a href="#!">three</a></li>
+</ul>
+    
+<nav>
+<div class="navbar-fixed">
+   <div class="nav-wrapper cyan darken-2">
+       <a href="{% url 'home' %}" class="brand-logo white-text">Coronavirus</a>
+         <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'about'%}">Sobre nosotros</a></li>
+            <li><a href="{% url 'contact' %}">Envianos algo</a></li>
+             <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Acerca del virus<i
+               class="material-icons right">arrow_drop_down</i></a></li>
+             </ul>
+     </nav>
+     <script>
+      $(document).ready(function(){
+          $('.modal').modal();
+          $('.dropdown-trigger').dropdown();
+      });
+   </script>
+   <main>
+      <div class="container">
+         <div class="card">
+            <div class="card-content">
+               
+               <div class="row">
+                  <form class="col s12">
+                    <div class="row">
+                     <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name"><h6>Nombre</h6></label>
+                      </div>
+                      <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Apellido</label>
+                      </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Contraseña</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                      </div>
+                    </div>
+                    <p style="text-align:justify"> 
+                        <form action="#">
+                     <p>
+                        <label>
+                        <input name="group1" type="radio" checked />
+                           <span>Hombre</span>
+                        </label>
+                        <label>
+                        <input name="group1" type="radio" checked />
+                           <span>Mujer</span>
+                        </label>
+                        
+                               
+                           <label><h6>Comuna donde vive</h6></label>
+                              <select class="browser-default">
+                              <option value="" disabled selected>Seleccione su residencia</option>
+                                     <option value="1">Cerrillos</option>
+                                     <option value="2">Cerro navia</option>
+                                     <option value="3">Conchali</option>
+                                     <option value="4">El Bosque</option>
+                                     <option value="5">Estacion central</option>
+                                     <option value="6">Huechuraba</option>
+                                     <option value="7">Independencia</option>
+                                     <option value="8">La Cisterna</option>
+                                     <option value="9">La Florida</option>
+                                     <option value="10">La Pintana</option>
+                                     <option value="11">La Granja</option>
+                                     <option value="12">La Reina</option>
+                                     <option value="13">Las Condes</option>
+                                     <option value="14">Lo Barnechea</option>
+                                     <option value="15">Lo Espejo</option>
+                                     <option value="16">Lo Prado</option>
+                                     <option value="17">Macul</option>
+                                     <option value="18">Maipú</option>
+                                     <option value="19">Ñuñoa</option>
+                                     <option value="20">Pedro Aguirre Cerda</option>
+                                     <option value="21">Peñalolen</option>
+                                     <option value="22">Providencia</option>
+                                     <option value="23">Pudahuel</option>
+                                     <option value="24">Quilicura</option>
+                                     <option value="25">Quinta Normal</option>
+                                     <option value="26">Recoleta</option>
+                                     <option value="27">Renca</option>
+                                     <option value="28">San Miguel</option>
+                                     <option value="29">San Joaquín</option>
+                                     <option value="30">San Ramón</option>
+                                     <option value="31">Santiago Centro </option>
+                                     <option value="32">Vitacura</option>
+                                      </select>
+                                      <label><h6>Tiene covid-19</h6></label>
+                                      <select class="browser-default">
+                                         <option value="1">Sí</option>
+                                         <option value="2">No</option>
+                                         <option value="3">No lo sé</option>
+                                      </select>
+                                      {% if submitted %}
+                                      <p class="success">
+                                      <h1 style="text-align: center;">Se a realizado exitosamente, ¡Lo esperamos!</h1>
+                                     </p>
+                                   
+                                      {% else %}
+                                     <form action="" method="post" novalidate>
+                                     <table>
+                                      {{ form.as_table }}
+                                      <tr>
+                                       <td>&nbsp;</td>
+                                       <td><input type="submit" value="Enviar"></td>
+                                      </p>
+                                      </tr>
+                                     </table>
+                                     {% csrf_token %}
+                                     </form>
+                                    {% endif %}
+                                    </div>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+
+   
+   
+   
+   
+           
+          
+</main>   
+<footer class="page-footer cyan darken-2">
+   <div class="container">
+     <div class="row">
+       <div class="col l6 s12">
+         <h5 class="black-text">Importante</h5>
+         <p class="black-text text-lighten-4">Toda la Información que está puesta en la página son sacadas de páginas
+          oficiales, de esta forma la Información no será trangiversada.</p>
+        </div>
+       <div class="col l4 offset-l2 s12">
+        <h5 class="black-text">Para saber más, ver de donde sacamos nosotros la información.</h5>
+        <ul>
+          <li><a class="black-text text-lighten-3" href="https://www.gob.cl/coronavirus/"></a>gob.cl</li>
+          <li><a class="black-text text-lighten-3" href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019?gclid=Cj0KCQjwo6D4BRDgARIsAA6uN1-DVdxqCDZx5eh3OoKfmPq3opl30qKKnkNe_3yCn1I4w55x8HcyD-0aAiDVEALw_wcB"></a>who.int</li>
+          <li><a class="black-text text-lighten-3" href="https://www.hospitalsoterodelrio.cl/web/como-prevenir-el-nuevo-coronavirus/"></a>hospitalsoterodelrio.cl</li>
+          <li><a class="black-text text-lighten-3" href="https://espanol.cdc.gov/coronavirus/2019-ncov/daily-life-coping/managing-stress-anxiety.html"></a>español.cdc.gov</li>
+        </ul>
+      </div>
+     </div>
+   </div>
+   <div class="footer-copyright">
+     <div class="container">
+       © 2014 Copyright Text
+       <a class="grey-text text-lighten-4 right" href="https://www.uai.cl/">uai.cl</a>
+     </div>
+   </div>
+
+</footer>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
-{% block content %}
-  
-<h1>Contactanos</h1>
-  
-{% if submitted %}
-<p class="success">
-    <h1 style="text-align: center;">Se a realizado exitosamente, ¡Lo esperamos!</h1>
-   </p>
-
-{% else %}
-   <form action="" method="post" novalidate>
-   <table>
-    {{ form.as_table }}
-    <tr>
-     <td>&nbsp;</td>
-     <td><input type="submit" value="Submit"></td>
-    </tr>
-   </table>
-   {% csrf_token %}
-   </form>
-{% endif %}
 {% endblock content %}

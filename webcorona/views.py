@@ -9,3 +9,7 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView): # new
     template_name = 'about.html'
+
+    
+def contact(request):
+    return render(request, 'contact/contact.html', )
